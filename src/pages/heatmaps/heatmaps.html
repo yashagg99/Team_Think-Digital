@@ -1,14 +1,16 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon color="text" name="menu"></ion-icon>
     </button>
-        <ion-title>Home</ion-title>
+        <ion-title style="color: #dedbfb">Critical Areas</ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
     <div id="map_canvas">
-        <button ion-button (click)="oye()">Click for Ypur Location</button>
     </div>
 </ion-content>
+<ion-footer color="primary"   style="width:100%;background: transparent ">
+     <button ion-button block style="height: 50px;" (click)="oye()">Locate Critical areas</button>
+</ion-footer>

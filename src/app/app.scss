@@ -14,3 +14,20 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+$SIDEMENU_TOP: #ee4649;
+$SIDEMENU_BOTTOM: #f6a72a;
+$SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
+.toolbar-background-md {
+    // background: linear-gradient(to right, #3d72C2, #283Ab7);
+    background: -webkit-linear-gradient(27deg, rgb(73, 175, 218) 0%, rgb(17, 20, 183) 80%);
+    background: -o-linear-gradient(27deg, rgb(73, 175, 218) 0%, rgb(17, 20, 183) 80%);
+    background: -moz-linear-gradient(27deg, rgb(73, 175, 218) 0%, rgb(17, 20, 183) 80%);
+    background: linear-gradient(27deg, #423B80 0%,#454183  80%);
+    background-repeat: repeat-x;
+}
+
+.toolbar-title-md {
+    color: #fff;
+    letter-spacing: calc(6vw - 18px);
+    
+}

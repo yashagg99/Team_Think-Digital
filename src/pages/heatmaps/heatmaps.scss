@@ -1,7 +1,12 @@
 page-heatmaps {
 
     #map_canvas {
-        height: 90%;
+        height: 100%;
+        width: 100%;
     }
-
+.footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+    top:0px;
+    height: 0px;
+    bottom: 0px;
+}
 }
