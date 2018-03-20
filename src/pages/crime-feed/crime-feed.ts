@@ -6,7 +6,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer,FileTransferObject} from '@ionic-native/file-transfer';
 import { Geolocation } from '@ionic-native/geolocation';
-
+import {Validators, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { NativeStorage } from '@ionic-native/native-storage';
 /**
  * Generated class for the CrimeFeedPage page.
@@ -28,7 +28,10 @@ declare var cordova: any;
 export class CrimeFeedPage {
  heading:string;
   content:string;
+  formgroup:FormGroup;
   name:string;
+  head:AbstractControl;
+  cont:AbstractControl;
   img_path:string;
   datetime:string;
     lastImage: string = null;
@@ -51,8 +54,10 @@ public myItem:any;
     public loadingCtrl:LoadingController,
     public transfer:FileTransfer,
     private geolocation: Geolocation,
-    private nativeStorage: NativeStorage
+    private nativeStorage: NativeStorage,
+    public formbuilder: FormBuilder
     ) 
+    
     {
 this.geolocation.getCurrentPosition().then((resp) => {
   this.lat=resp.coords.latitude;
@@ -74,6 +79,12 @@ data.coords.latitude;
 data.coords.longitude;
 });
 
+this.formgroup=formbuilder.group({
+  head:['',Validators.required],
+cont:['',Validators.required]
+});
+this.head=this.formgroup.controls['head'];
+this.cont=this.formgroup.controls['cont'];
 }
   
   public event = {
