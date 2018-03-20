@@ -1,86 +1,42 @@
 <!--
-  Generated template for the CrimeFeedPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+Generated template for the CrimeFeedPage page.
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-navbar>
-     <button ion-button menuToggle>
-      <ion-icon color="menu" name="menu"></ion-icon>
-    </button>
-    <ion-title>crime_feed</ion-title>
-  </ion-navbar>
+
+<ion-navbar>
+<button ion-button menuToggle>
+<ion-icon color="menu" name="menu"></ion-icon>
+</button>
+<ion-title>crime_feed</ion-title>
+</ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="outer-content">
-
-  <ion-list>
-    <ion-item>
-      <ion-input [(ngModel)]="heading" placeholder="Title"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="content" placeholder="Details"></ion-input>
-    </ion-item>
-  </ion-list>
+<form (ngSubmit)=submitArticle() [formGroup]="formgroup">
+<ion-list>
+<ion-item>
+<ion-input [(ngModel)]="heading" name="heading" placeholder="Title"  formControlName="head"></ion-input>
+</ion-ite
+<ion-input [(ngModel)]="content" name="content" placeholder="Details" formControlName="cont"></ion-input>
+</ion-item>
+<div *ngIf="cont.hasError('required') && cont.touched" align="center">Please enter Content</div>
+</ion-list>m>
+<div *ngIf="head.hasError('required') && head.touched" align="center">Please enter Heading</div>
+<ion-item>
 
 <ion-list>
-  <ion-item (click)="presentActionSheet()">
-    Upload Image 
-    <ion-icon></ion-icon>
-  </ion-item>
+<ion-item (click)="presentActionSheet()">
+Upload Image 
+<ion-icon></ion-icon>
+</ion-item>
 </ion-list>
 <p style="text-align: center">
-  <button ion-button block (click)="submitArticle()">
-    Submit
-  </button>
-  </p>
+<button ion-button block [disabled]="!formgroup.valid">Submit</button>
+</p>
+</form>
 </ion-content>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
