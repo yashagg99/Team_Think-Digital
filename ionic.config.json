@@ -1,0 +1,8 @@
+{
+  "name": "Team_Think-Digital",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

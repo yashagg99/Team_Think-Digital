@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card padding *ngFor="let feed of feedss">
+<a href="https://www.google.com/maps/dir/{{feed.lat}},{{feed.longi}}">
+      <h1>{{feed.heading}}</h1>
+      <h3>{{feed.datetime}}</h3>
+    <img src="http://srmpedia.esy.es/uploads/{{feed.img_path}}">  
+    </a> 
+  </ion-card>
+
+
+
+</ion-content>-

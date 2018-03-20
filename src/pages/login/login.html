@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-item>
+   <ion-label floating>Phone Number</ion-label>
+   <ion-input [(ngModel)]="number"></ion-input>
+ </ion-item>
+ <button ion-button (click)="sendOtp(number)"  outline>Send Otp</button>
+ <br>
+ <br>
+ <ion-item>
+  <ion-label floating>OTP</ion-label>
+  <ion-input [(ngModel)]="otp"></ion-input>
+</ion-item>
+<button ion-button (click)="verifyOtp(otp)" outline>V</button>
+</ion-content>

@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Rajasthan Tourism
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card  *ngFor="let tour of tourss">
+
+    <ion-item>
+      <h1>{{tour.heading}}</h1>
+    </ion-item>
+  
+    <img src="{{tour.img_path}}">
+  
+    <ion-card-content>
+      <p>{{tour.details}}</p>
+    </ion-card-content>
+  
+    <ion-row>
+       <ion-col col-3>
+        <button ion-button icon-middle clear (click)="timealert(tour.timing)">
+          <ion-icon name="md-timer"></ion-icon>
+          <div></div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <a href="tel:{{tour.number}}">
+        <button ion-button icon-middle clear>
+          <ion-icon name="md-call"></ion-icon>
+          <div></div>
+        </button>
+        </a>
+      </ion-col>
+      
+       <ion-col col-3>
+         <a href="{{tour.link}}">
+        <button ion-button icon-middle clear>
+          <ion-icon name="md-navigate"></ion-icon>
+          <div></div>
+        </button>
+         </a>
+      </ion-col>
+      <ion-col col-3 (click)="Rjt(tour.heading,tour.img_path,tour.extradetails,tour.timing,tour.number,tour.link)">
+        <button ion-button icon-middle clear >
+          <ion-icon name="md-information-circle"></ion-icon>
+          <div></div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col col-4>
+     <button style="width:100%;"  (click)="Hlo()" ion-button>
+Report Crime
+    </button>
+    </ion-col>
+  
+    <ion-col col-4>    
+       <button style="width:100%;" (click)="Hloo()" ion-button>
+         Alert Area
+    </button>
+    </ion-col>
+  
+    <ion-col col-4>    
+       <button style="width:100%;" (click)="Hlooo()" ion-button>
+         HeatMaps
+    </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
