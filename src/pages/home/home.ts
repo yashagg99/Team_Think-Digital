@@ -86,6 +86,33 @@ export class HomePage {
         });
       });
   }
+  oye()
+  {
+    this.map.getMyLocation()
+    .then((location: MyLocation) => {
+      console.log(JSON.stringify(location, null ,2));
+
+      // Move the map camera to the location with animation
+      return this.map.animateCamera({
+        target: location.latLng,
+        zoom: 17,
+        tilt: 30
+      }).then(() => {
+        // add a marker
+        return this.map.addCircle({
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#00FF00',
+          fillOpacity: 0.35,
+          // map: googleMapInstance,
+          center: location.latLng,
+          radius: 15.24
+});
+        
+      })
+    });
+  }
 
   showToast(message: string) {
     let toast = this.toastCtrl.create({
