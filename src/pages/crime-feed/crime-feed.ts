@@ -85,7 +85,7 @@ data.coords.longitude;
    alert(this.lat)
    alert(this.long)
        this.uploadImage()
-    this.http.get('http://srmpedia.esy.es/HackRaj/save.php?heading='+this.heading+'&img_path='+this.img_path+'&lat='+this.lat+'&longi='+this.long)
+    this.http.get('http://srmpedia.esy.es/HackRaj/save.php?heading='+this.heading+'&content='+this.content+'&img_path='+this.img_path+'&lat='+this.lat+'&longi='+this.long)
       .subscribe((res)=>{
         if(res.status==200)
         {

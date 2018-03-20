@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { OtpProvider } from '../../providers/otp/otp';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {FormBuilder,FormGroup,Validators,AbstractControl} from '@angular/forms';
 
-import { Http } from '@angular/http'
+import { HomePage} from '../../pages/home/home';
 /**
  * Generated class for the LoginPage page.
  *
@@ -20,26 +20,45 @@ import { Http } from '@angular/http'
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  url;
- otp:number;
- public authkey:any="196805ApglVDJ8aVx75a787d58";
- public number;
-  constructor(public navCtrl: NavController,private otpProvider:OtpProvider,public http:Http) {
-
+username:string;
+password:number;
+conpassword:number;
+email:string;
+age:number;
+formgroup:FormGroup;
+name:AbstractControl;
+pass:AbstractControl;
+cpass:AbstractControl;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public formbuilder: FormBuilder,private alertCtrl:AlertController) {
+    this.formgroup=formbuilder.group({
+      name:['',Validators.required],
+    pass:['',Validators.required],
+    cpass:['',Validators.required]
+    });
+this.name=this.formgroup.controls['name'];
+this.pass=this.formgroup.controls['pass'];
+this.cpass=this.formgroup.controls['cpass'];
   }
 
-sendOtp(number){
-this.http.get('http://control.msg91.com/api/sendotp.php?authkey='+this.authkey+'&mobile='+this.number).subscribe()
-  console.log("used");
-}
-verifyOtp(otp:number){
-this.http.get('https://control.msg91.com/api/verifyRequestOTP.php?authkey='+this.authkey+'&mobile='+this.number+'&otp='+this.otp).subscribe((res)=>{
-    console.log()
-  if(res.status==200)
-    {this.navCtrl.setRoot(LoginPage)}
-    else
-    alert("Not Verified")})
-}
-
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
+  }
+  saveform(){
+    if(this.conpassword!=this.password)
+    {
+      this.showalert('Error','Both the password should be same')
+    }
+    else{
+     this.showalert('Voila!','Success')
+     this.navCtrl.push(HomePage);
+    }
+  }
+  showalert(title:string,message:string) {
+    let alertBox = this.alertCtrl.create({
+      title: title,
+      subTitle: message,
+      buttons: ['Ok']
+    });
+    alertBox.present();
+  }
 }
